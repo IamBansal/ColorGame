@@ -89,18 +89,30 @@ class MainActivity : AppCompatActivity() {
                 "black" -> {
                     firstColor?.setBackgroundColor(resources.getColor(R.color.black))
                     firstColor?.tag = originalColor
+                    if(restart?.tag == "invisible") {
+                        drivingCode()
+                    }
                 }
                 "green" -> {
                     secondColor?.setBackgroundColor(resources.getColor(R.color.teal_700))
                     secondColor?.tag = originalColor
+                    if(restart?.tag == "invisible") {
+                        drivingCode()
+                    }
                 }
                 "blue" -> {
                     thirdColor?.setBackgroundColor(resources.getColor(R.color.teal_200))
                     thirdColor?.tag = originalColor
+                    if(restart?.tag == "invisible") {
+                        drivingCode()
+                    }
                 }
                 "purple" -> {
                     fourthColor?.setBackgroundColor(resources.getColor(R.color.purple_700))
                     fourthColor?.tag = originalColor
+                    if(restart?.tag == "invisible") {
+                        drivingCode()
+                    }
                 }
             }
         }, 1000)
@@ -115,26 +127,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun drivingCode() {
-        var n = 0
-        while (n < 10) {
-        Handler().postDelayed({
-            when ((0..3).random()) {
-                0 -> {
-                    changeColor(firstColor!!)
+                when ((0..3).random()) {
+                    0 -> {
+                        changeColor(firstColor!!)
+                    }
+                    1 -> {
+                        changeColor(secondColor!!)
+                    }
+                    2 -> {
+                        changeColor(thirdColor!!)
+                    }
+                    3 -> {
+                        changeColor(fourthColor!!)
+                    }
                 }
-                1 -> {
-                    changeColor(secondColor!!)
-                }
-                2 -> {
-                    changeColor(thirdColor!!)
-                }
-                3 -> {
-                    changeColor(fourthColor!!)
-                }
-            }
-        }, 6000)
-            n++
-        }
     }
 
 }
