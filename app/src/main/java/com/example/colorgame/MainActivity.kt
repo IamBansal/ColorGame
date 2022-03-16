@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private var thirdColor: Button? = null
     private var fourthColor: Button? = null
     private var restart: Button? = null
+    private var toolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,8 +29,11 @@ class MainActivity : AppCompatActivity() {
         thirdColor = findViewById(R.id.third)
         fourthColor = findViewById(R.id.fourth)
         restart = findViewById(R.id.restart)
+        toolbar = findViewById(R.id.toolbar)
 
         var count = 0
+
+        toolbar?.title = "Color Game"
 
         drivingCode()
 
