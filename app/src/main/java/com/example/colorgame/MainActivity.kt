@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun whatToDo(button: Button, count: Int): Int {
         var a = count
-        if (button.tag!! == "grey") {
+        if (button.tag!! == "grey" && button.isPressed) {
             a++
             restart?.visibility = View.GONE
             restart?.tag = "invisible"
@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
             restart?.tag = "visible"
         }
         score?.visibility = View.VISIBLE
-                scoreT?.visibility = View.VISIBLE
+        scoreT?.visibility = View.VISIBLE
         score?.text = a.toString()
         return a
     }
@@ -95,28 +95,28 @@ class MainActivity : AppCompatActivity() {
                 "black" -> {
                     firstColor?.setBackgroundColor(resources.getColor(R.color.orange))
                     firstColor?.tag = originalColor
-                    if(restart?.tag == "invisible") {
+                    if (restart?.tag == "invisible") {
                         drivingCode()
                     }
                 }
                 "green" -> {
                     secondColor?.setBackgroundColor(resources.getColor(R.color.blue))
                     secondColor?.tag = originalColor
-                    if(restart?.tag == "invisible") {
+                    if (restart?.tag == "invisible") {
                         drivingCode()
                     }
                 }
                 "blue" -> {
                     thirdColor?.setBackgroundColor(resources.getColor(R.color.yellow))
                     thirdColor?.tag = originalColor
-                    if(restart?.tag == "invisible") {
+                    if (restart?.tag == "invisible") {
                         drivingCode()
                     }
                 }
                 "purple" -> {
                     fourthColor?.setBackgroundColor(resources.getColor(R.color.green))
                     fourthColor?.tag = originalColor
-                    if(restart?.tag == "invisible") {
+                    if (restart?.tag == "invisible") {
                         drivingCode()
                     }
                 }
@@ -129,24 +129,39 @@ class MainActivity : AppCompatActivity() {
         val originalColor = button.tag.toString()
         button.setBackgroundColor(resources.getColor(R.color.grey))
         button.tag = "grey"
+        val startTime = System.currentTimeMillis()
+        val scoreN = score?.text
+        Handler().postDelayed({
+            if (scoreN == score?.text) {
+                Toast.makeText(
+                    this,
+                    "GAME OVER!!\nYour score is : ${score?.text}",
+                    Toast.LENGTH_SHORT
+                ).show()
+                restart?.visibility = View.VISIBLE
+                restart?.tag = "visible"
+                score?.visibility = View.VISIBLE
+                scoreT?.visibility = View.VISIBLE
+            }
+        }, 1000)
         checkColor(originalColor)
     }
 
     private fun drivingCode() {
-                when ((0..3).random()) {
-                    0 -> {
-                        changeColor(firstColor!!)
-                    }
-                    1 -> {
-                        changeColor(secondColor!!)
-                    }
-                    2 -> {
-                        changeColor(thirdColor!!)
-                    }
-                    3 -> {
-                        changeColor(fourthColor!!)
-                    }
-                }
+        when ((0..3).random()) {
+            0 -> {
+                changeColor(firstColor!!)
+            }
+            1 -> {
+                changeColor(secondColor!!)
+            }
+            2 -> {
+                changeColor(thirdColor!!)
+            }
+            3 -> {
+                changeColor(fourthColor!!)
+            }
+        }
     }
 
 }
