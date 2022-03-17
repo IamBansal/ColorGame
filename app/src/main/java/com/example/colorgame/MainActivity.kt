@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar
 class MainActivity : AppCompatActivity() {
 
     private var score: TextView? = null
+    private var scoreT: TextView? = null
     private var firstColor: Button? = null
     private var secondColor: Button? = null
     private var thirdColor: Button? = null
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         score = findViewById(R.id.tvScore)
+        scoreT = findViewById(R.id.tvScoreShow)
         firstColor = findViewById(R.id.first)
         secondColor = findViewById(R.id.second)
         thirdColor = findViewById(R.id.third)
@@ -43,6 +45,8 @@ class MainActivity : AppCompatActivity() {
             drivingCode()
             restart?.visibility = View.GONE
             restart?.tag = "invisible"
+            score?.visibility = View.GONE
+            scoreT?.visibility = View.GONE
         }
 
         firstColor?.setOnClickListener {
@@ -72,12 +76,14 @@ class MainActivity : AppCompatActivity() {
         } else {
             Toast.makeText(
                 this,
-                "GAME OVER!!\nYour score is : ${score?.text}.",
+                "GAME OVER!!\nYour score is : ${score?.text}",
                 Toast.LENGTH_SHORT
             ).show()
             restart?.visibility = View.VISIBLE
             restart?.tag = "visible"
         }
+        score?.visibility = View.VISIBLE
+                scoreT?.visibility = View.VISIBLE
         score?.text = a.toString()
         return a
     }
@@ -87,28 +93,28 @@ class MainActivity : AppCompatActivity() {
         Handler().postDelayed({
             when (originalColor) {
                 "black" -> {
-                    firstColor?.setBackgroundColor(resources.getColor(R.color.black))
+                    firstColor?.setBackgroundColor(resources.getColor(R.color.orange))
                     firstColor?.tag = originalColor
                     if(restart?.tag == "invisible") {
                         drivingCode()
                     }
                 }
                 "green" -> {
-                    secondColor?.setBackgroundColor(resources.getColor(R.color.teal_700))
+                    secondColor?.setBackgroundColor(resources.getColor(R.color.blue))
                     secondColor?.tag = originalColor
                     if(restart?.tag == "invisible") {
                         drivingCode()
                     }
                 }
                 "blue" -> {
-                    thirdColor?.setBackgroundColor(resources.getColor(R.color.teal_200))
+                    thirdColor?.setBackgroundColor(resources.getColor(R.color.yellow))
                     thirdColor?.tag = originalColor
                     if(restart?.tag == "invisible") {
                         drivingCode()
                     }
                 }
                 "purple" -> {
-                    fourthColor?.setBackgroundColor(resources.getColor(R.color.purple_700))
+                    fourthColor?.setBackgroundColor(resources.getColor(R.color.green))
                     fourthColor?.tag = originalColor
                     if(restart?.tag == "invisible") {
                         drivingCode()

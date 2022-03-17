@@ -28,12 +28,14 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="80dp"
         android:text="Score : "
+        android:visibility="gone"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/tvScore"
+        android:visibility="gone"
         android:layout_above="@id/first"
         android:layout_toEndOf="@id/tvScoreShow"
         android:layout_centerHorizontal="true"
@@ -51,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginStart="110sp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/orange"
         android:tag="black"
         android:text="\n\n\n" />
 
@@ -62,7 +64,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@id/first"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/blue"
         android:tag="green"
         android:text="\n\n\n" />
 
@@ -73,7 +75,7 @@
         android:layout_below="@id/first"
         android:layout_centerVertical="true"
         android:layout_marginStart="110sp"
-        android:backgroundTint="@color/teal_200"
+        android:backgroundTint="@color/yellow"
         android:tag="blue"
         android:text="\n\n\n" />
 
@@ -86,6 +88,7 @@
         android:layout_marginStart="10dp"
         android:layout_toEndOf="@id/first"
         android:tag="purple"
+        android:backgroundTint="@color/green"
         android:text="\n\n\n" />
 
     <Button
