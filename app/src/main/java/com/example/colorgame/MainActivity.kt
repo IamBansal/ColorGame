@@ -1,9 +1,11 @@
 package com.example.colorgame
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private var fourthColor: Button? = null
     private var restart: Button? = null
     private var toolbar: Toolbar? = null
+    private var help: ImageButton? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,12 +35,18 @@ class MainActivity : AppCompatActivity() {
         fourthColor = findViewById(R.id.fourth)
         restart = findViewById(R.id.restart)
         toolbar = findViewById(R.id.toolbar)
+        help = findViewById(R.id.help)
 
         var count = 0
 
-        toolbar?.title = "Color Game"
+        setSupportActionBar(toolbar)
+        supportActionBar?.title = "Color Game"
 
         drivingCode()
+
+        help?.setOnClickListener {
+            startActivity(Intent(this, Help::class.java))
+        }
 
         restart?.setOnClickListener {
             count = 0

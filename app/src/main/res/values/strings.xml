@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ColorGame</string>
+    <string name="how_to_play">1.If you tap on the box while it is grey, you are +1 on score.\n2. If you failed to tap on the box while it is grey and taps a colored box, GAME OVER.\n3. If you failed to tap on any of the box in 1 second, GAME OVER.</string>
+    <string name="how_to_play_Obj">1. On every one second the color of any one of the box will turn grey.\n2. The grey color will remain for 1 complete second.\n3. After 1 second, the current greyed box will change its color to original and any other random box will turn grey.\n4. You need to tap on the box while it is grey in every 1 second.</string>
 </resources>
